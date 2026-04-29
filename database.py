@@ -5,8 +5,8 @@ cursor = conn.cursor()
 cursor.execute("""CREATE TABLE IF NOT EXISTS tasks (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,          
-        priority TEXT DEFAULT 'medium',
-        status TEXT DEFAULT 'pending',       
+        priority TEXT DEFAULT 'média',
+        status TEXT DEFAULT 'pendente',       
         due_date TEXT
         )
         """)

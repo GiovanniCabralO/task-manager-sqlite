@@ -22,6 +22,7 @@ def list_tasks(priority):
         cursor.execute("SELECT * FROM tasks")
         rows = cursor.fetchall()
     
+    print("\n---------- Lista de Tarefas ----------")
     for row in rows:
         print(row)
 
@@ -32,7 +33,6 @@ def delete_task(id):
     cursor = conn.cursor()
 
     cursor.execute("DELETE FROM tasks WHERE id = ?", (id, ))
-    print(f"Task {id} deletada.")
 
     conn.commit()
     conn.close()
@@ -46,6 +46,4 @@ def update_status(id, status):
 
     conn.commit()
     conn.close()
-
-
 
