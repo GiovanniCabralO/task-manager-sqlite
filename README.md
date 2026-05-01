@@ -1,25 +1,72 @@
-# Task Manager CLI
+# 🗂️ Task Manager Pro (Python + SQLite + Tkinter)
 
-Gerenciador de tarefas em Python + SQLite, desenvolvido para praticar SQL e automação.
+Gerenciador de tarefas desenvolvido com foco em praticar a integração
+entre banco de dados relacional (**SQLite**) e interfaces gráficas
+(**Tkinter**).\
+O projeto oferece suporte tanto via **Interface Gráfica (GUI)** quanto
+via **Terminal (CLI)**.
 
-## Tecnologias
-- Python 3
-- SQLite3 (nativo)
+------------------------------------------------------------------------
 
-## Funcionalidades atuais
-- CRUD completo de tarefas (criar, listar, atualizar, deletar)
-- Filtros por prioridade e status
-- Relatórios por status e prioridade com GROUP BY
+## 🚀 Funcionalidades
 
-## Próximos passos
-- Interface gráfica
-- Filtros na tela
-- Contadores de tarefas
-- Tela de relatórios
+-   **Interface Gráfica (GUI)**\
+    Ambiente amigável desenvolvido com Tkinter.
 
-## Como rodar
-```bash
-python database.py  # cria o banco
-python tasks.py     # gerencia tarefas
-python reports.py   # gera relatórios
+-   **Modo Terminal (CLI)**\
+    Versão completa para gerenciamento rápido via linha de comando.
+
+-   **Persistência de Dados**\
+    Utilização de banco de dados SQLite3.
+
+-   **Organização de Dados**\
+    Listagem tabular alinhada e tratamento de textos longos.
+
+------------------------------------------------------------------------
+
+## 📁 Estrutura do Projeto
+
+``` bash
+.
+├── ui.py          # Ponto de entrada da Interface Gráfica
+├── main.py        # Ponto de entrada da versão CLI
+├── tasks.py       # Funções CRUD e regras de negócio
+├── database.py    # Inicialização e conexão com o banco
+├── reports.py     # Geração de relatórios e estatísticas
 ```
+
+------------------------------------------------------------------------
+
+## ⚙️ Como Executar
+
+### 1. Inicializar o banco de dados
+
+``` bash
+python database.py
+```
+
+### 2. Executar a Interface Gráfica (recomendado)
+
+``` bash
+python ui.py
+```
+
+### 3. Executar via Terminal (CLI)
+
+``` bash
+python main.py
+```
+
+------------------------------------------------------------------------
+
+## 📌 Próximas Melhorias
+
+-  Filtros de prioridade na interface gráfica
+-  Janela de relatórios visuais
+-  Alertas visuais para tarefas próximas do vencimento
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Autor
+
+Desenvolvido por Giovanni Cabral como projeto de portfólio.

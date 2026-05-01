@@ -17,14 +17,12 @@ def list_tasks(priority):
 
     if priority:
         cursor.execute("SELECT * FROM tasks WHERE priority = ?", (priority,))
-        rows = cursor.fetchall()
     else:
         cursor.execute("SELECT * FROM tasks")
-        rows = cursor.fetchall()
     
-    print("\n---------- Lista de Tarefas ----------")
-    for row in rows:
-        print(row)
+    rows = cursor.fetchall()
+    conn.close()
+    return rows
 
     conn.close()
 
