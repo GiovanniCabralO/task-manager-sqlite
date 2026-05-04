@@ -16,7 +16,7 @@ def report_by_priority():
     cursor = conn.cursor()
 
     cursor.execute("""SELECT priority, COUNT(*), SUM(CASE WHEN status = 'finalizada' THEN 1 ELSE 0 END)
-                   FROM tasks 
+                   FROM tasks   
                    GROUP BY priority
                    """)
     
