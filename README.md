@@ -1,72 +1,75 @@
 # 🗂️ Task Manager Pro (Python + SQLite + Tkinter)
 
-Gerenciador de tarefas desenvolvido com foco em praticar a integração
-entre banco de dados relacional (**SQLite**) e interfaces gráficas
-(**Tkinter**).\
-O projeto oferece suporte tanto via **Interface Gráfica (GUI)** quanto
-via **Terminal (CLI)**.
+Gerenciador de tarefas com arquitetura de banco de dados relacional. Este projeto demonstra a integração entre Python, SQL e Interfaces Gráficas (GUI), focando em integridade de dados e experiência do usuário.
 
-------------------------------------------------------------------------
+---
 
-## 🚀 Funcionalidades
+## 🛠️ Especificações Técnicas
 
--   **Interface Gráfica (GUI)**\
-    Ambiente amigável desenvolvido com Tkinter.
+### 🗄️ Camada de Dados (SQLite3)
 
--   **Modo Terminal (CLI)**\
-    Versão completa para gerenciamento rápido via linha de comando.
+O projeto utiliza um modelo relacional normalizado para garantir a consistência das informações:
 
--   **Persistência de Dados**\
-    Utilização de banco de dados SQLite3.
+* **Relacionamento 1:N:** Vínculo entre as tabelas `tasks` e `categories` via *Foreign Keys*
+* **Consultas Avançadas:**
 
--   **Organização de Dados**\
-    Listagem tabular alinhada e tratamento de textos longos.
+  * `INNER JOIN` para exibição de dados correlacionados
+  * `LEFT JOIN` com funções de agregação (`COUNT`, `GROUP BY`) para o dashboard
+* **Integridade:** Constraints para evitar duplicidade de categorias e garantir campos obrigatórios
 
-------------------------------------------------------------------------
+---
 
-## 📁 Estrutura do Projeto
+### 🖥️ Interface Gráfica (Tkinter)
 
-``` bash
+* **Dashboard de Estatísticas:** Resumo dinâmico no cabeçalho refletindo o estado global das tarefas por categoria
+* **UI Reativa:** Atualização automática da listagem após inserção, conclusão ou deleção
+* **Input Inteligente:** Seleção de categorias via menus dinâmicos que previnem erros de entrada
+
+---
+
+## 📁 Estrutura do Sistema
+
+```bash
 .
-├── ui.py          # Ponto de entrada da Interface Gráfica
-├── main.py        # Ponto de entrada da versão CLI
-├── tasks.py       # Funções CRUD e regras de negócio
-├── database.py    # Inicialização e conexão com o banco
-├── reports.py     # Geração de relatórios e estatísticas
+├── ui.py          # Interface Gráfica e Gerenciamento de Eventos
+├── tasks.py       # Engine de Negócio e Queries SQL
+├── database.py    # Definição do Schema e Criação das Tabelas
+├── main.py        # Versão CLI (Command Line Interface)
+├── seed_db.py     # Script para povoamento automático de dados para teste
 ```
 
-------------------------------------------------------------------------
+---
 
-## ⚙️ Como Executar
+## ⚙️ Como Utilizar
 
-### 1. Inicializar o banco de dados
+### 1. Inicialização
 
-``` bash
+Configure a estrutura do banco de dados e as tabelas:
+
+```bash
 python database.py
 ```
 
-### 2. Executar a Interface Gráfica (recomendado)
+### 2. Povoamento (Opcional)
 
-``` bash
+Para testar o dashboard e as listagens com dados reais imediatamente:
+
+```bash
+python seed_db.py
+```
+
+### 3. Execução
+
+Inicie a interface principal:
+
+```bash
 python ui.py
 ```
 
-### 3. Executar via Terminal (CLI)
-
-``` bash
-python main.py
-```
-
-------------------------------------------------------------------------
-
-## 📌 Próximas Melhorias
-
--  Filtros de prioridade na interface gráfica
--  Janela de relatórios visuais
--  Alertas visuais para tarefas próximas do vencimento
-
-------------------------------------------------------------------------
+---
 
 ## 👨‍💻 Autor
 
-Desenvolvido por Giovanni Cabral como projeto de portfólio.
+Desenvolvido por **Giovanni Cabral**
+
+Focado em desenvolvimento Backend, Engenharia de Dados e automação com Python.
